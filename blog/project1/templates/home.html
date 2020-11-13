@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Posts</h1> 
+<ul>
+{% for post in object_list %}
+
+   <li><a href="{% url 'detail' post.pk %}">{{post.title}}</a> -> Categoria: <a href="{% url 'category' post.category %}">{{post.category}}</a> - Autor: {{post.author.first_name}} {{post.author.last_name}}  -> {{post.post_date}} 
+    <br/> 
+    {{ post.snippet }}
+</li>
+
+{% endfor %}
+</ul>
+
+
+{% endblock %}

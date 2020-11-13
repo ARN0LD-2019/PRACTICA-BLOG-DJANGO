@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Editar Perfil{% endblock %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+    {% if user.id == profile.user.id %}
+        <h1>EDITAR PERFIL</h1> 
+        <br/>
+        <div class="form-group">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                
+        <button class="btn btn-primary">
+            Editar pagina de perfil 
+        </button>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Regresar</a>
+        </div>
+
+    {% else  %}
+
+    Tu no eres el usuario correcto para editar este perfil 
+    
+    {% endif %}
+{% else %}  
+    Tu no estas logueado aun 
+
+{% endif %}    
+{% endblock %}

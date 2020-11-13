@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Comenta el Post{% endblock %}
+{% block content %}
+
+    <h1>COMENTA ALGO</h1> 
+    <br/>
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+    <button class="btn btn-primary">
+        Agregar Comentario
+    </button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Regresar</a>
+    </div>
+
+    
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Crear Perfil{% endblock %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+    <h1>CREAR PAGINA DE PERFIL</h1> 
+    <br/>
+    <div class="form-group">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+    <button class="btn btn-primary">
+        Crear Perfil
+    </button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Regresar</a>
+    </div>
+
+{% else  %}
+
+Tienes que volver a loguearte
+    
+{% endif %}
+    
+{% endblock %}
